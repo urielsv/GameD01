@@ -27,12 +27,10 @@ namespace Weapons
 
         public GameObject SpawnProjectile()
         {
-            Debug.Log("asd");
-            // if (projectilePool.Count == 0)
-            // {
-            //     Debug.LogWarning("Projectile pool empty!");
-            //     return null;
-            // }
+            if (projectilePool.Count == 0) {
+                 Debug.LogWarning("Projectile pool empty!");
+                 return null;
+            }
             GameObject projectile = projectilePool.Dequeue();
             projectile.SetActive(true);
             return projectile;
@@ -41,6 +39,7 @@ namespace Weapons
         public void DespawnProjectile(GameObject projectile)
         {
             projectile.SetActive(false);
+            Debug.Log("Despawned!");
             projectilePool.Enqueue(projectile);
         }
     }
