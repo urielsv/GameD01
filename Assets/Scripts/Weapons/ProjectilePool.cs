@@ -16,6 +16,9 @@ namespace Weapons
             for (int i = 0; i < poolSize; i++)
             {
                 Debug.Log(i);
+                // Create a new projectile with playerPosition
+                
+                
                 GameObject projectile = Instantiate(projectilePrefab, transform);
                 projectile.SetActive(false);
                 projectilePool.Enqueue(projectile);

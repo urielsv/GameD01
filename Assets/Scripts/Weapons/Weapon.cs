@@ -14,7 +14,6 @@ public abstract class Weapon : MonoBehaviour
     
     [SerializeField]
     private float shootCooldown;
-    BulletProjectile bulletProjectile;
     private float shootRange;
     private bool canFire;
     
@@ -22,11 +21,9 @@ public abstract class Weapon : MonoBehaviour
     private Vector3 lookDir;
     private float lookAngle;
 
-    //[SerializeField]
-    //private GameObject bulletPrefab;
     [SerializeField]
     private Camera mainCamera;
-    [SerializeField]
+    // [SerializeField]
     private ProjectilePool bulletPool;
 
 
@@ -35,6 +32,8 @@ public abstract class Weapon : MonoBehaviour
     {
         mainCamera = Camera.main;
         canFire = true;
+        bulletPool = GameObject.FindObjectOfType<ProjectilePool>();
+        
     }
 
     // Update is called once per frame
@@ -57,8 +56,9 @@ public abstract class Weapon : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire) 
+        if (Input.GetMouseButtonDown(0) && canFire)
         {
+            // bulletPool.firePoint.position = transform.position;
             //canFire = false;
             Debug.Log("boom");
             Shoot();
@@ -74,21 +74,16 @@ public abstract class Weapon : MonoBehaviour
         }
     }
     void Shoot() 
-        {
+    {
+        GameObject bulletClone = bulletPool.SpawnProjectile();
 
-
-            // Spawn the bullet with the correct rotation
-            
-            // firePoint.position = GameObject.FindWithTag("Player").transform.position;
-            GameObject bulletClone = bulletPool.SpawnProjectile();
-            //GameObject bulletClone = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            // GameObject bulletClone = Instantiate(bulletPrefab, transform);
-            if (bulletClone != null) {
-                // Set the projectile's damage to the value in the Shooting script
-                // bulletClone.GetComponent<BulletProjectile>().Damage = bulletDamage;
-                // bulletClone.transform.rotation = transform.rotation;
-                bulletClone.GetComponent<Rigidbody2D>().velocity = lookDir * bulletSpeed;
-            }
-
+        if (bulletClone != null) {
+            bulletClone.transform.position = firePoint.position;
+            bulletClone.transform.rotation = firePoint.rotation;
+            bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
+            Debug.Log(bulletClone.GetComponent<Rigidbody2D>().velocity);
         }
+    }
+
+
 }
