@@ -14,7 +14,8 @@ public abstract class Weapon : MonoBehaviour
     
     [SerializeField]
     private float shootCooldown;
-    private float shootRange;
+    [SerializeField]
+    private float shootRange = 2f;
     private bool canFire;
     
     private float timer;
@@ -26,6 +27,7 @@ public abstract class Weapon : MonoBehaviour
     // [SerializeField]
     private ProjectilePool bulletPool;
 
+    private GameObject bulletClone;
 
 
     void Start() 
@@ -56,32 +58,25 @@ public abstract class Weapon : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire)
-        {
+        if (Input.GetMouseButtonDown(0) && canFire) {
             // bulletPool.firePoint.position = transform.position;
-            //canFire = false;
-            Debug.Log("boom");
+            canFire = false;
             Shoot();
-
-            // Despawn the bullet if reached its maximun range.
-            // Not working &&
-            // Debug.Log(playerPos);
-            // Debug.Log(Vector3.Distance(transform.position, playerPos));
-            // if (bulletClone != null && Vector3.Distance(transform.position, bulletClone.transform.position) >= shootRange) {
-            //     Debug.Log("Despawned");
-            //     bulletPool.DespawnProjectile(bulletClone);
-            // }
+        }
+        
+        if (bulletClone != null && bulletClone.activeSelf && 
+            Vector3.Distance(bulletClone.transform.position, firePoint.position) > shootRange) {
+            bulletPool.DespawnProjectile(bulletClone);
         }
     }
     void Shoot() 
     {
-        GameObject bulletClone = bulletPool.SpawnProjectile();
+        bulletClone = bulletPool.SpawnProjectile();
 
         if (bulletClone != null) {
             bulletClone.transform.position = firePoint.position;
             bulletClone.transform.rotation = firePoint.rotation;
             bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
-            Debug.Log(bulletClone.GetComponent<Rigidbody2D>().velocity);
         }
     }
 
