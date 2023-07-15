@@ -41,8 +41,7 @@ public abstract class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookDir = mainCamera.ScreenToWorldPoint(Input.mousePosition);// - playerPos;
-        lookDir = lookDir - transform.position;
+        lookDir = mainCamera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
         lookAngle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         // Debug.Log(lookAngle);
         transform.rotation = Quaternion.Euler(1, 0, lookAngle);
