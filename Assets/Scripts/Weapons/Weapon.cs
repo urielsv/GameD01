@@ -28,8 +28,7 @@ public abstract class Weapon : MonoBehaviour
     private ProjectilePool bulletPool;
 
     private GameObject bulletClone;
-
-
+    
     void Start() 
     {
         mainCamera = Camera.main;
@@ -58,7 +57,6 @@ public abstract class Weapon : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0) && canFire) {
-            // bulletPool.firePoint.position = transform.position;
             canFire = false;
             Shoot();
         }
@@ -78,6 +76,8 @@ public abstract class Weapon : MonoBehaviour
             bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
         }
     }
+    
+    
 
 
 }

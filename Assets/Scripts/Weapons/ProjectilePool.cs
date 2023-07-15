@@ -15,10 +15,6 @@ namespace Weapons
             projectilePool = new Queue<GameObject>();
             for (int i = 0; i < poolSize; i++)
             {
-                Debug.Log(i);
-                // Create a new projectile with playerPosition
-                
-                
                 GameObject projectile = Instantiate(projectilePrefab, transform);
                 projectile.SetActive(false);
                 projectilePool.Enqueue(projectile);
@@ -39,7 +35,6 @@ namespace Weapons
         public void DespawnProjectile(GameObject projectile)
         {
             projectile.SetActive(false);
-            Debug.Log("Despawned!");
             projectilePool.Enqueue(projectile);
         }
     }

@@ -2613,7 +2613,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 40aae76b960b0c64ba79eaf1722e7c01, type: 3}
-  m_Color: {r: 0.4669811, g: 1, b: 0.6403822, a: 1}
+  m_Color: {r: 0.49741903, g: 0.509434, b: 0.50130624, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2758,7 +2758,7 @@ Transform:
   m_GameObject: {fileID: 1281118218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.07, y: 0.1, z: 0}
-  m_LocalScale: {x: 0.41657856, y: 1.787928, z: 1}
+  m_LocalScale: {x: 0.4165786, y: 1.787928, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056579506}
@@ -2782,6 +2782,10 @@ MonoBehaviour:
   shootCooldown: 60
   shootRange: 20
   mainCamera: {fileID: 519420031}
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 129
+  collisionRadius: 0.1
 --- !u!212 &1281118222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2824,7 +2828,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d61436292a725a9489074fa737838d4a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
