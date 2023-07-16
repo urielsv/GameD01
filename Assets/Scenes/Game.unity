@@ -2779,13 +2779,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2056579506}
   bulletSpeed: 8
-  shootCooldown: 60
+  shootCooldown: 0.1
   shootRange: 20
   mainCamera: {fileID: 519420031}
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 129
-  collisionRadius: 0.1
 --- !u!212 &1281118222
 SpriteRenderer:
   m_ObjectHideFlags: 0
