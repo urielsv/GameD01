@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1275336687}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -257,7 +257,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.049999524, y: -0.40569976, z: -10}
+  m_LocalPosition: {x: 0.049999047, y: -0.40569952, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2613,7 +2613,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 40aae76b960b0c64ba79eaf1722e7c01, type: 3}
-  m_Color: {r: 0.4669811, g: 1, b: 0.6403822, a: 1}
+  m_Color: {r: 0.49741903, g: 0.509434, b: 0.50130624, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2758,7 +2758,7 @@ Transform:
   m_GameObject: {fileID: 1281118218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.07, y: 0.1, z: 0}
-  m_LocalScale: {x: 0.41657856, y: 1.787928, z: 1}
+  m_LocalScale: {x: 0.4165786, y: 1.787928, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056579506}
@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2056579506}
   bulletSpeed: 8
-  shootCooldown: 60
+  shootCooldown: 0.1
   shootRange: 20
   mainCamera: {fileID: 519420031}
 --- !u!212 &1281118222
@@ -2824,7 +2824,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d61436292a725a9489074fa737838d4a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2975,8 +2975,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
+  m_XDamping: 2
+  m_YDamping: 2
   m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -2986,8 +2986,8 @@ MonoBehaviour:
   m_DeadZoneHeight: 0.4
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.5
+  m_SoftZoneHeight: 0.5
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1

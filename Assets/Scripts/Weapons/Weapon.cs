@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,6 @@ public abstract class Weapon : MonoBehaviour
     private float shootCooldown;
     [SerializeField]
     private float shootRange = 2f;
-    private bool canFire;
     
     private float timer;
     private Vector3 lookDir;
@@ -28,12 +28,10 @@ public abstract class Weapon : MonoBehaviour
     private ProjectilePool bulletPool;
 
     private GameObject bulletClone;
-
-
+    
     void Start() 
     {
-        mainCamera = Camera.main;
-        canFire = true;
+        // mainCamera = Camera.main;
         bulletPool = GameObject.FindObjectOfType<ProjectilePool>();
         
     }
@@ -41,28 +39,25 @@ public abstract class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookDir = mainCamera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
-        lookAngle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        // Debug.Log(lookAngle);
-        transform.rotation = Quaternion.Euler(1, 0, lookAngle);
-        
+            lookDir = mainCamera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
+            lookAngle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            firePoint.rotation = Quaternion.Euler(1, 0, lookAngle);
+
         lookDir.Normalize();
-        // firePoint = Quaternion.Euler(1, 0, lookAngle);
-
-        if (!canFire) {
-            timer += Time.deltaTime;
-            if (timer > shootCooldown / 60f) {
-                canFire = true;
-                timer = 1;
+   
+            if (Input.GetMouseButton(0))
+            {
+                timer += Time.deltaTime;
+                if (timer >= shootCooldown) {
+                    Shoot();
+                    timer = 0f;
+                }
             }
-        }
-
-        if (Input.GetMouseButtonDown(0) && canFire) {
-            // bulletPool.firePoint.position = transform.position;
-            canFire = false;
-            Shoot();
-        }
-        
+            else
+            {
+                timer = 0f;
+            }
+            
         if (bulletClone != null && bulletClone.activeSelf && 
             Vector3.Distance(bulletClone.transform.position, firePoint.position) > shootRange) {
             bulletPool.DespawnProjectile(bulletClone);
@@ -78,6 +73,5 @@ public abstract class Weapon : MonoBehaviour
             bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
         }
     }
-
 
 }

@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ba0c82cf104d76a540249636e99b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  collisionRadius: 0.1
 --- !u!50 &9167840921301090866
 Rigidbody2D:
   serializedVersion: 4
