@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     { //If movement input is not 0, try to move
         
-        FaceMousePosition();
+        // FaceMousePosition();
         
         if (_movementInput != Vector2.zero) {
             bool success = TryMove(_movementInput);

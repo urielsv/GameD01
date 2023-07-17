@@ -45,10 +45,14 @@ namespace Weapons
             {
                 Enemy enemy = other.GetComponent<Enemy>();
 
-                if (enemy != null)
+                GameObject playerObject = GameObject.FindWithTag("Player");
+                if (playerObject != null)
                 {
-                    Weapon weapon = GetComponentInParent<Weapon>();
-                    enemy.Health -= weapon.BulletDamage;
+                    Weapon weapon = playerObject.GetComponentInChildren<Weapon>();
+                    if (weapon != null && enemy != null)
+                    {
+                        enemy.Health -= weapon.BulletDamage;
+                    }
                 }
             }
         }

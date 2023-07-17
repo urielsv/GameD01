@@ -40,7 +40,7 @@ public class PickUpController : MonoBehaviour
     {
         //Check if player is in range and "E" is pressed
         Vector3 distanceToPlayer = player.position - transform.position;
-        if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E)) PickUp();
+        if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.F)) PickUp();
 
        
     }
@@ -54,7 +54,7 @@ public class PickUpController : MonoBehaviour
         transform.SetParent(gunContainer);
         transform.position = gunContainer.position;
         transform.rotation = gunContainer.rotation;
-        //transform.localScale = Vector3.one;
+        transform.localScale = Vector3.one;
 
         //Make Rigidbody kinematic and BoxCollider a trigger
      
