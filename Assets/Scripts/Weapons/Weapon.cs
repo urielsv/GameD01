@@ -33,6 +33,7 @@ public abstract class Weapon : MonoBehaviour
     {
         // mainCamera = Camera.main;
         bulletPool = GameObject.FindObjectOfType<ProjectilePool>();
+        mainCamera = Camera.main;
         
     }
 
