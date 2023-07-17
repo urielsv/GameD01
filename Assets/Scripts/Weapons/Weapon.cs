@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
+    
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -17,6 +18,23 @@ public abstract class Weapon : MonoBehaviour
     private float shootCooldown;
     [SerializeField]
     private float shootRange = 2f;
+
+    public  float BulletDamage
+    {
+        set
+        {
+            bulletDamage = value;
+        }
+
+        get
+        {
+            return bulletDamage;
+        }
+
+    }
+
+    [SerializeField] private float bulletDamage = 1f;
+    
     
     private float timer;
     private Vector3 lookDir;
@@ -74,5 +92,5 @@ public abstract class Weapon : MonoBehaviour
             bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
         }
     }
-
+    
 }

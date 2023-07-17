@@ -8,6 +8,7 @@ namespace Weapons
         private ProjectilePool bulletPool;
         private Rigidbody2D rb;
         
+        
         [SerializeField]
         private LayerMask collisionLayers;
         
@@ -32,8 +33,22 @@ namespace Weapons
             {
                 if (collisionLayers == (collisionLayers | (1 << collider.gameObject.layer)))
                 {
-                    bulletPool.DespawnProjectile(gameObject);
+                   EnemyDetector(collider);
+                   bulletPool.DespawnProjectile(gameObject);
                     break;
+                }
+            }
+        }
+        public void EnemyDetector(Collider2D other)
+        {
+            if (other.tag == "Enemy")
+            {
+                Enemy enemy = other.GetComponent<Enemy>();
+
+                if (enemy != null)
+                {
+                    Weapon weapon = GetComponentInParent<Weapon>();
+                    enemy.Health -= weapon.BulletDamage;
                 }
             }
         }
